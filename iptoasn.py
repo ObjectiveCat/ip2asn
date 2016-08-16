@@ -14,7 +14,7 @@ __license__ = "GPL"
 
 def getasn(ipaddr):
 	ptr = ipaddress.ip_address(ipaddr).reverse_pointer
-	ip = re.findall( r'[0-9]+(?:\.[0-9]+){3}', ptr)
+	ip = str(re.findall( r'[0-9]+(?:\.[0-9]+){3}', ptr))
 	
 	if ipaddr.version is 4:
 		subprocess.call(['dig', '+short', ip + '.origin.asn.cymru.com', 'TXT'])
